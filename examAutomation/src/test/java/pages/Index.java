@@ -9,6 +9,8 @@ public class Index {
 	private By searchButton;
 	private By iconList;// list
 	private By womenLink;
+	private By dressesLink;
+	private By t_shirtsLink;
 	private By productName;	
 	
 	public Index(WebDriver driver) {
@@ -17,7 +19,21 @@ public class Index {
 		searchButton = By.name("submit_search");
 		iconList = By.id("list");
 		womenLink = By.linkText("Women");
+		dressesLink = By.xpath("//*[@id=\'block_top_menu\']/ul/li[2]/a");
+		t_shirtsLink = By.xpath("//*[@id=\'block_top_menu\']/ul/li[3]/a");
 		productName = By.xpath("//*[@id='center_column']/div/div/div[3]/h1");
+	}
+	
+	public void goCategory(String category) {
+		driver.findElement(By.linkText(category)).click();
+	}
+	
+	public void goT_shirtsCategory() {
+		driver.findElement(t_shirtsLink).click();
+	}
+	
+	public void goDressesCategory() {
+		driver.findElement(dressesLink).click();
 	}
 	
 	public void search(String item) {

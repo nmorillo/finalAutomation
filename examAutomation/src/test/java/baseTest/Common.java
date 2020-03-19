@@ -71,8 +71,8 @@ public class Common {
 		}
 		System.out.println("El test "+result.getMethod().getDescription()+" | "+result.getMethod().getMethodName()+" : "+resultado+" la prueba");
 		System.out.println("============================================");
-		driver.close();
-		driver.quit();
+//		driver.close();
+//		driver.quit();
 	}
 
 }

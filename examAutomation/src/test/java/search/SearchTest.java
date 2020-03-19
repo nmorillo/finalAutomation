@@ -22,16 +22,20 @@ public class SearchTest extends Common{
 	System.out.println("****************************** ");		
 	}
 	
-	@Test(enabled=true , description="Search By Dress")
+	@Test(enabled=false , description="Search By Dress")
 	public void searchByDress() {		
-		index.search("dress");		
-		//StaticWaiter.wait(3000);		
+		index.search("dress");	
 		Assert.assertEquals(item.getLighterBannerText(), "\"DRESS\"");
 	}
 	
-	@Test(enabled=true , description="Search no Results")
-	public void searchNoResults() {
-		
+	@Test(enabled=false , description="Search Cero Results")
+	public void searchCeroResults() {		
+		index.search("pepito");		
+		Assert.assertEquals(item.getCeroResultsBannerText(), "0 results have been found.");		
+	}
+	
+	@Test(enabled=false , description="Search no Results")
+	public void searchNoResults() {		
 		index.search("pepito");		
 		Assert.assertEquals(item.getNoResultsBannerText(), "No results were found for your search \"pepito\"");		
 	}
