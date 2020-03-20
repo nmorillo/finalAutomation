@@ -13,6 +13,7 @@ import org.testng.annotations.BeforeMethod;
 
 import config.Configuration;
 import helpers.Screenshots;
+import pages.Autentication;
 import pages.Category;
 import pages.Index;
 import pages.Items;
@@ -24,6 +25,7 @@ public class Common {
 	protected Index index;
 	protected Items item;
 	protected Category category;
+	protected Autentication auth;
 
 	@BeforeMethod
 	public void setUp() {
@@ -35,7 +37,7 @@ public class Common {
 				System.setProperty("webdriver.chrome.driver", "drivers/chromedriver");
 			}
 			ChromeOptions options = new ChromeOptions();
-			options.addArguments("--start-maximized");		
+			options.addArguments("--start-maximized", "--headless");		
 			driver = new ChromeDriver(options);			
 		}else {
 			if(System.getProperty("os.name").equals("Windows 10")) {
@@ -51,6 +53,7 @@ public class Common {
 		index = new Index(driver);
 		category = new Category(driver);
 		item = new Items(driver);
+		auth = new Autentication(driver);
 	}
 	
 	@AfterMethod
@@ -71,8 +74,8 @@ public class Common {
 		}
 		System.out.println("El test "+result.getMethod().getDescription()+" | "+result.getMethod().getMethodName()+" : "+resultado+" la prueba");
 		System.out.println("============================================");
-//		driver.close();
-//		driver.quit();
+		driver.close();
+		driver.quit();
 	}
 
 }

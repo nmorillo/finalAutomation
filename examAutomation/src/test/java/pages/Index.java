@@ -11,7 +11,8 @@ public class Index {
 	private By womenLink;
 	private By dressesLink;
 	private By t_shirtsLink;
-	private By productName;	
+	private By productName;
+	private By loginLink;
 	
 	public Index(WebDriver driver) {
 		this.driver = driver;
@@ -22,6 +23,7 @@ public class Index {
 		dressesLink = By.xpath("//*[@id=\'block_top_menu\']/ul/li[2]/a");
 		t_shirtsLink = By.xpath("//*[@id=\'block_top_menu\']/ul/li[3]/a");
 		productName = By.xpath("//*[@id='center_column']/div/div/div[3]/h1");
+		loginLink = By.linkText("Sign in");
 	}
 	
 	public void goCategory(String category) {
@@ -57,5 +59,9 @@ public class Index {
 		
 		System.out.println("Estoy en Index......"+driver.findElement(productName).getText());
 		return driver.findElement(productName).getText();
+	}
+	
+	public void loginBtn() {
+		driver.findElement(loginLink).click();
 	}
 }

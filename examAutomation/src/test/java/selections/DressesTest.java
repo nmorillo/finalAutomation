@@ -8,7 +8,7 @@ import baseTest.Common;
 public class DressesTest extends Common{
 	public String subCategory;
 	
-	@Test(enabled=false , description = "Verify Section Dresses")
+	@Test(enabled=true , description = "Verify Section Dresses")
 	public void verifySectionDresses() {		
 		index.goDressesCategory();
 		subCategory = "Summer Dresses";
@@ -16,7 +16,7 @@ public class DressesTest extends Common{
 		Assert.assertEquals(category.getCategoryNameText(), subCategory);
 	}
 	
-	@Test(enabled=false , description = "Verify first dress color blue in Section Dresses")
+	@Test(enabled=true , description = "Verify first dress color blue in Section Dresses")
 	public void dressBlueInSectionDresses() {		
 		index.goDressesCategory();
 		subCategory = "Summer Dresses";
